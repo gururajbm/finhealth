@@ -3,7 +3,7 @@ include('vendor/autoload.php');
 
 $path    = 'pdf/';
 $files = scandir($path);
-$password = 'AJPPG4513Q';
+$password = 'ABCDEFGT43';
 
 require('lib/db.php');
 $db = new DBClass();
@@ -22,18 +22,27 @@ foreach ($files as $file_name) {
 
 		echo $sql;
 	   	print_r($sql);
-      
+
 	   	$result = $db->query($sql);
 	}
 }
 
 function get_axis_fund_information($text){
 	preg_match('/(AXIS BANK LTD))/', $text, $matches);
+	if count($matches){
+		print_r(get_fund_name($text));	
+	}
 
-	print_r(get_fund_name($text));
+	
 }
 
 function get_fund_name($text){
+	preg_match('/(?<name>\w+): (?<digit>\d+)/', $str, $matches);
+
+		print_r($matches);
+}
+
+function get_($text){
 	preg_match('/(?<name>\w+): (?<digit>\d+)/', $str, $matches);
 
 		print_r($matches);
