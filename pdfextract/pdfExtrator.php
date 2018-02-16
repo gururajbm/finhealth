@@ -1,4 +1,5 @@
 <?php
+include('vendor/autoload.php');
 
 $path    = 'pdf/';
 $files = scandir($path);
@@ -9,3 +10,5 @@ foreach ($files as $file_name) {
 	}
 }
 
+
+print_r(\Spatie\PdfToText\Pdf::getText('pdf/output.txt'));
