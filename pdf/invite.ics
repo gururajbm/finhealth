@@ -1,0 +1,52 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20180214T110000Z
+DTEND:20180214T113000Z
+DTSTAMP:20180213T164653Z
+ORGANIZER;CN=Jeff Fichlie:mailto:jeff.fichlie@costrategix.com
+UID:7jm4ic36j87i35qfjgjlg1i861@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=Rokkitwear team;X-NUM-GUESTS=0:mailto:rokkitwear-team@costrategix.c
+ om
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=shridhar.bennisur@costrategix.com;X-NUM-GUESTS=0:mailto:shridhar.be
+ nnisur@costrategix.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=Jeff Fichlie;X-NUM-GUESTS=0:mailto:jeff.fichlie@costrategix.com
+CREATED:20180213T164649Z
+DESCRIPTION:Discuss the email sent on 13 Feb from Chris Berger with the fea
+ tures he would like estimated.<br><br><br>1) Ability to change the 3 school
+  fan page style thumbnails (t-shirt\, warmups\, jackets) to something stand
+ ard for all schools - easiest and/or option to provide custom thumbnails by
+  school<br>2) Ability to mask e-flyer expiration date and delivery date.&nb
+ sp\;<br>3) New Designs - I will send our final list of designs for you to q
+ uote in the next week<br>4) Ability to auto email customers on a periodic b
+ asis with monthly sales data&nbsp\;<br>5) Business Skin (not high priority 
+ at the moment)<br>6) Ability to flag schools as Public vs Private\, element
+ ary vs high school<br>7) Ability to change the landing page image for&nbsp\
+ ;<a href="http://rokkitwear.com/" target="_blank">Rokkitwear.com</a>&nbsp\;
+ <br>8) Ability to add video testimonials to our word press site<br><br>As w
+ e discussed it would also be great if we could review the user experience a
+ nd design of the site to see what improvements your team might see as high 
+ value updates.\n\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~:~:~:~::~:~::-\nPlease do not edit this section of the desc
+ ription.\n\nThis event has a Google Hangouts video call.\nJoin: https://plu
+ s.google.com/hangouts/_/costrategix.com/rokkit-new?hceid=amVmZi5maWNobGllQG
+ Nvc3RyYXRlZ2l4LmNvbQ.7jm4ic36j87i35qfjgjlg1i861&hs=121\n\nView your event a
+ t https://www.google.com/calendar/event?action=VIEW&eid=N2ptNGljMzZqODdpMzV
+ xZmpnamxnMWk4NjEgc2hyaWRoYXIuYmVubmlzdXJAY29zdHJhdGVnaXguY29t&tok=MjgjamVmZ
+ i5maWNobGllQGNvc3RyYXRlZ2l4LmNvbWRlOTA0NjViMmJhY2M1NzMzMWE2ODI0NjBjYmZjNDI0
+ NjBjZmMzZWE&ctz=Asia/Calcutta&hl=en.\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-
+LAST-MODIFIED:20180213T164652Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Rokkit New Features Discussion
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
