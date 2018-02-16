@@ -76,33 +76,33 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr> -->
+                 <?php
+                    require('lib/db.php');
+
+                     /* connect to gmail with your login account details */
+
+                    $db = new DBClass();
+                    $sql = "SELECT * from fund_trans";
+                    $result = $db->query($sql);
+                    if ($db->numRows($result) > 0) {
+                        while($row = $db->fetchAssoc($result)) {
+                            
+                            echo "<tr>";
+                            echo "<td>" .$row['folio_no']  . "</td>";
+                            echo "<td>" . $row['fund_name']  . "</td>";
+                            echo "<td>" . $row['amc']        . "</td>";
+                            echo "<td>" .$row['trans_date'] . "</td>";
+                            echo "<td>" .$row['trans_type'] . "</td>";
+                            echo "<td>" . $row['nav']  ."</td>";
+                            echo "<td>" . $row['units'] . "</td>";
+                            echo "</tr>";
+                      
+                      }
+                    } else {
+                        echo "0 results";
+                    }
+
+                    ?>
                 </tbody>
               </table>
 

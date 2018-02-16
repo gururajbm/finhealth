@@ -11,7 +11,7 @@ $result = $db->query($sql);
 if ($db->numRows($result) > 0) {
     while($row = $db->fetchAssoc($result)) {
         $username = $row['email'];
-        $password = $row['email_password'];
+        $password = $row['pan'];
     }
 } else {
     echo "0 results";

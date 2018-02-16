@@ -12,7 +12,7 @@ class DatabaseSettings
 		// Username
 		$settings['dbusername'] = 'root';
 		// Password
-		$settings['dbpassword'] = 'guru';
+		$settings['dbpassword'] = 'root';
 
 		return $settings;
 	}
