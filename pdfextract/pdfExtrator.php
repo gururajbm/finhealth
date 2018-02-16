@@ -5,11 +5,12 @@ $path    = 'pdf/';
 $files = scandir($path);
 $password = 'AJPPG4513Q';
 
-$dbhost = 'localhost:3036';
-$dbuser = 'root';
-$dbpass = 'root';
-$conn = new mysqli($servername, $username, $password, $dbname);
+require('lib/db.php');
+$db = new DBClass();
 
+
+
+//decrypt and put it in Mysql server
 foreach ($files as $file_name) {
 	if (strpos($file_name, '.pdf') !== false) {
 		print_r($file_name.PHP_EOL);
@@ -17,13 +18,25 @@ foreach ($files as $file_name) {
 
 		$text = \Spatie\PdfToText\Pdf::getText('decrypted_pdf/temp_' . $file_name);
 
-		$sql = 'INSERT INTO transaction_dump'.
-	      '(data`) '.
-	      'VALUES ( ' . $text. ')';
+		$sql = "INSERT INTO transcation_dump(data) VALUES ('" . $db->realEscapeString($text) . "')";
+
+		echo $sql;
+	   	print_r($sql);
       
-	   mysql_select_db('fin_health');
-	   $retval = mysql_query( $sql, $conn );		
+	   	$result = $db->query($sql);
 	}
+}
+
+function get_axis_fund_information($text){
+	preg_match('/(AXIS BANK LTD))/', $text, $matches);
+
+	print_r(get_fund_name($text));
+}
+
+function get_fund_name($text){
+	preg_match('/(?<name>\w+): (?<digit>\d+)/', $str, $matches);
+
+		print_r($matches);
 }
 
 

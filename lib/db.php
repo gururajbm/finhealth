@@ -59,6 +59,11 @@ class DBClass extends DatabaseSettings
 		return $this->link->escape_string( $query );
 	}
 
+	function realEscapeString( $query )
+	{
+		return $this->link->real_escape_string( $query );
+	}
+
 	// Get the data return int result
 	function numRows( $result )
 	{
