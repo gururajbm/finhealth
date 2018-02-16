@@ -1,6 +1,10 @@
 <?php
 set_time_limit(0);
 require('../lib/db.php');
+
+ /* connect to gmail with your login account details */
+$hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
+
 $db = new DBClass();
 $sql = "SELECT * from user";
 $result = $db->query($sql);
@@ -8,27 +12,16 @@ if ($db->numRows($result) > 0) {
     while($row = $db->fetchAssoc($result)) {
         $username = $row['email'];
         $password = $row['email_password'];
-        print_r($row);
     }
 } else {
     echo "0 results";
 }
-$db->close();
-exit;
- /* connect to gmail with your login account details */
-
-$hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
-$username = 'shridhar.bennisur@costrategix.com'; # e.g somebody@gmail.com
-$password = 'shridharm773';
-
-
 $inbox = imap_open($hostname,$username,$password) or die('Cannot connect to Gmail: ' . imap_last_error());
 
-
 //$emails = imap_search($inbox,'ALL'); // finds all incoming mail from "person" containing partial text in subject 'something in subject'
-$fromDate = "1 Feb 2018";
-$endDate = "28 Feb 2018";
-$emails = imap_search($inbox, 'ALL SINCE "'.$fromDate.'" BEFORE "'.$endDate.'"');
+$fromDate = "7 Jul 2014";
+$endDate = "6 Jul 2014";
+$emails = imap_search($inbox, '"'.$fromDate.'" BEFORE "'.$endDate.'"');
 
 if($emails) {
 
@@ -105,6 +98,7 @@ if($emails) {
             if($attachment['is_attachment'] == 1)
             {
                 $filename = $attachment['name'];
+
 		        $filepath = '../pdf/'.$attachment['name'];
                 if(empty($filepath)) $filepath = '../pdf/'.$attachment['name'];;
 

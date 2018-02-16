@@ -3,7 +3,7 @@ include('vendor/autoload.php');
 
 $path    = 'pdf/';
 $files = scandir($path);
-$password = 'AJPPG4513Q';
+$password = 'ABCDEFGT43';
 
 require('lib/db.php');
 $db = new DBClass();
@@ -22,7 +22,7 @@ foreach ($files as $file_name) {
 
 		echo $sql;
 	   	print_r($sql);
-      
+
 	   	$result = $db->query($sql);
 	}
 }
