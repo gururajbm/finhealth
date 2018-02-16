@@ -16,12 +16,39 @@ if ($db->numRows($result) > 0) {
         // $username = $row['email'];
         // $password = $row['pan'];
         $finalArray[] = $obj;
-        print_r($finalArray);
+        //print_r($finalArray);
     }
 } else {
     echo "0 results";
     exit;
 }
+
+$interest_array = array();
+
+for ($i = 0 ; $i < count($finalArray); $i++) {
+    if ($i != 0) {
+        $previousNav = $finalArray[$i-1]->nav;
+        $previousUnits = $finalArray[$i-1]->units;
+        $calculate = ($finalArray[$i]->nav - $previousNav) * $previousUnits /($previousNav * $previousUnits);
+        $interest_array[] = $calculate * 100;
+        // print_r($calculate);
+    }
+}
+
+print_r($interest_array);
+
+$intial_investment = $finalArray[0]->total_value * $finalArray[0]->nav;
+$final_value = $finalArray[count($finalArray)-1]->total_value * $finalArray[count($finalArray)-1]->nav;
+echo $intial_investment.PHP_EOL;
+echo $final_value.PHP_EOL;
+
+foreach ($interest_array as $interest) {
+	$final_value = $final_value + ($final_value * ($interest  * 1.0 / 100));
+}
+
+$compound_interest = pow(($final_value / $intial_investment), (1 / count($interest_array))) - 1;
+print_r($compound_interest * 100.0);
+
 $db->close();
 
 ?>
