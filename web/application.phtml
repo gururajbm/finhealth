@@ -1,0 +1,126 @@
+<html>
+
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom  Style -->
+  <link href="css/appstyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- top navigation -->
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <!-- <div class="nav toggle">
+                      <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div> -->
+          <a class="navbar-brand" href="#">FINANCIAL HEALTH CHECKER</a>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="">
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                User Name
+                <span class=" fa fa-angle-down"></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- /top navigation -->
+    <div class="main-container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Bar graph </h2>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <canvas id="lineChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Line graph </h2>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <canvas id="mybarChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Basic Tables</h2>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+              <table class="table financial-table">
+                <thead>
+                  <tr>
+                    <th>Folio Number</th>
+                    <th>Fund Name</th>
+                    <th>AMC</th>
+                    <th>Transaction Date</th>
+                    <th>Transaction Type</th>
+                    <th>NAV</th>
+                    <th>Units</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 <?php
+                    require('lib/db.php');
+
+                     /* connect to gmail with your login account details */
+
+                    $db = new DBClass();
+                    $sql = "SELECT * from fund_trans";
+                    $result = $db->query($sql);
+                    if ($db->numRows($result) > 0) {
+                        while($row = $db->fetchAssoc($result)) {
+                            
+                            echo "<tr>";
+                            echo "<td>" .$row['folio_no']  . "</td>";
+                            echo "<td>" . $row['fund_name']  . "</td>";
+                            echo "<td>" . $row['amc']        . "</td>";
+                            echo "<td>" .$row['trans_date'] . "</td>";
+                            echo "<td>" .$row['trans_type'] . "</td>";
+                            echo "<td>" . $row['nav']  ."</td>";
+                            echo "<td>" . $row['units'] . "</td>";
+                            echo "</tr>";
+                      
+                      }
+                    } else {
+                        echo "0 results";
+                    }
+
+                    ?>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Mainly scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!--custom scripts  -->
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
