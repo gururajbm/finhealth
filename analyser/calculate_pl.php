@@ -1,6 +1,6 @@
 <?php
 
-require('lib/db.php');
+require('../lib/db.php');
 $db = new DBClass();
 $sql = "SELECT * from fund_trans";
 $result = $db->query($sql);
@@ -58,7 +58,7 @@ foreach ($finalArray as $value) {
 
 $finalResult = array( 'market_value' => $market_value, 'interest_value' => $interest_array, 'compound_interest'=> $compound_interest);
 
-print_r($finalResult); 
+print_r(json_encode($finalResult)); 
 
 
 $db->close();
