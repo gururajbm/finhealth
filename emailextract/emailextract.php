@@ -1,25 +1,26 @@
 <?php
 set_time_limit(0);
-require('../lib/db.php');
+require('lib/db.php');
 $db = new DBClass();
 $sql = "SELECT * from user";
 $result = $db->query($sql);
 if ($db->numRows($result) > 0) {
     while($row = $db->fetchAssoc($result)) {
         $username = $row['email'];
-        $password = $row['email_password'];
+        $password = $row['pan'];
         print_r($row);
     }
 } else {
     echo "0 results";
+    exit;
 }
 $db->close();
-exit;
+
  /* connect to gmail with your login account details */
 
 $hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
-$username = 'shridhar.bennisur@costrategix.com'; # e.g somebody@gmail.com
-$password = 'shridharm773';
+//$username = 'xxx@gmail.com'; # e.g somebody@gmail.com
+//$password = 'xxxxxxx';
 
 
 $inbox = imap_open($hostname,$username,$password) or die('Cannot connect to Gmail: ' . imap_last_error());
